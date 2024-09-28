@@ -6,4 +6,7 @@ import mysql.connector
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
 
-bot.run('')
+with open('token.txt') as f:
+    TOKEN = f.readline()
+
+bot.run(TOKEN)
