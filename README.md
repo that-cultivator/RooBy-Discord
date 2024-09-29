@@ -1,2 +1,3 @@
 # RooBy-Discord
-A simple yet useful Discord bot :D
+A simple yet useful server-feedback Discord bot :D
+
