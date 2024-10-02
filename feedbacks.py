@@ -19,7 +19,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS feedbacks (
                rating FLOAT(3, 1),
                review TEXT NULL
 );
-""") # Create a table called 'feedbacks' to store id, user_id, rating, and review
+""") # Create a table called 'feedbacks' to store id, user_id, server_id, rating, and review
 
 
 
@@ -29,11 +29,11 @@ class Feedback(commands.Cog):
         self.bot = bot
 
     @commands.hybrid_command() # A hybrid command means a command that is both a slash command and a prefix command
-    async def feedback(self, ctx, rating: float, *, review: str = None):  # Changed rating to float
+    async def feedback(self, ctx, rating: float, *, review: str = None): 
         user_id = ctx.author.id # ID of the user who's using this command
         server_id = ctx.guild.id # ID of the server 
 
-        valid_ratings = [i / 10 for i in range(10, 51)]  # Create acceptable ratings from 1.0 to 5.0 
+        valid_ratings = [i / 10 for i in range(10, 51)]  # valid ratings from 1.0 to 5.0 
 
         if rating not in valid_ratings:
             await ctx.send("Oops! Your can only provide a rating between 1.0 and 5.0 in increments of 0.1!")
